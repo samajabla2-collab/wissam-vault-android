@@ -114,7 +114,10 @@ public final class QuickShareActivity extends Activity {
         ip.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_URI);area.addView(ip);
         EditText pin=new EditText(this);pin.setSingleLine(true);pin.setHint("رمز الاقتران: 8 أرقام");
         pin.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_PASSWORD);area.addView(pin);
-        Button pair=button("اقتران وإرسال مباشرة",()->{
+        // Construct the button before its click listener refers to it.
+        // Otherwise Java reports: variable pair might not have been initialized.
+        Button pair=button("اقتران وإرسال مباشرة",()->{});
+        pair.setOnClickListener(v->{
             String ipValue=ip.getText().toString().trim();String pinValue=pin.getText().toString().trim();
             if(!privateIp(ipValue) || !pinValue.matches("[0-9]{8}")) {
                 update("تحقق من العنوان والرمز","اكتب عنوان Wi-Fi المحلي و8 أرقام من الكمبيوتر.",0);return;

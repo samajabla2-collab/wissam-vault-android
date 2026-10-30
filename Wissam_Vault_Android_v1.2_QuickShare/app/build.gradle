@@ -4,6 +4,12 @@ android {
     namespace 'com.wissam.smartbridge'
     compileSdk 35
 
+    // AGP 8+ may not generate BuildConfig by default.
+    // VaultFiles.uri() uses BuildConfig.APPLICATION_ID for provider authority.
+    buildFeatures {
+        buildConfig true
+    }
+
     defaultConfig {
         applicationId 'com.wissam.smartbridge.quickshare'
         minSdk 23

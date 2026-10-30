@@ -1,0 +1,22 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'com.wissam.smartbridge'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'com.wissam.smartbridge.quickshare'
+        minSdk 23
+        targetSdk 34
+        versionCode 3
+        versionName '1.2.0-quickshare'
+    }
+    buildTypes {
+        release { minifyEnabled false }
+        debug { debuggable true }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}

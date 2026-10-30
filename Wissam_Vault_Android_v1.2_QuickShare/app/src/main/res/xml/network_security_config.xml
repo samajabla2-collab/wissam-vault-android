@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- The companion Windows server is HTTP-only on a private home LAN.
+         The app validates that the entered IP is RFC1918 private and never uses external hosts. -->
+    <base-config cleartextTrafficPermitted="true" />
+</network-security-config>
